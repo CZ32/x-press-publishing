@@ -30,4 +30,8 @@ seriesRouter.get('/', (req, res, next) => {
  });
 });
 
+seriesRouter.get('/:seriesId', (req, res, next) => {
+    res.status(200).json({series: req.series});
+});
+
 module.exports = seriesRouter;
