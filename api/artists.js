@@ -54,7 +54,8 @@ artistsRouter.post('/', (req, res, next) => {
   if (err) {
    next(err);
   } else {
-   db.get(`SELECT * FROM Artist WHERE Artist.id = ${this.lastID}`, (err, artist) => {
+   db.get(`SELECT * FROM Artist WHERE Artist.id = ${this.lastID}`,
+   (err, artist) => {
     res.status(201).json({ artist: artist });
    });
   }
@@ -86,7 +87,8 @@ artistsRouter.put('/:artistId', (req, res, next) => {
   if (err) {
    next(err);
   } else {
-   db.get(`SELECT * FROM Artist WHERE Artist.id = ${req.params.artistId}`, (err, artist) => {
+   db.get(`SELECT * FROM Artist WHERE Artist.id = ${req.params.artistId}`,
+    (err, artist) => {
     res.status(200).json({ artist: artist });
    });
   }
