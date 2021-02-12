@@ -13,12 +13,13 @@ const PORT = process.env.PORT || 4001;
 //mount packages
 app.use(bodyParser.json());
 app.use(cors());
-app.use(errorHandler());
 app.use(morgan('dev'));
 
 //Require api router from api.js and mount routes
 const apiRouter = require('./api/api.js');
 app.use('/api', apiRouter);
+
+app.use(errorHandler());
 
 app.listen(PORT, () => {
  console.log(`Server is listening to PORT ${PORT}`);
