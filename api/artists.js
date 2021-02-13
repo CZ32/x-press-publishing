@@ -3,7 +3,7 @@ const sqlite3 = require('sqlite3');
 const apiRouter = require('./api');
 const artistsRouter = express.Router();
 
-const db = new sqlite3.Database(process.env.TEST_DATABASE || './datbase.sqlite');
+const db = new sqlite3.Database(process.env.TEST_DATABASE || './database.sqlite');
 
 artistsRouter.param('artistId', (req, res, next, artistId) => {
  const sql = `SELECT * FROM Artist WHERE Artist.id = $artistId`;
